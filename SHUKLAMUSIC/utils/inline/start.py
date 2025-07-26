@@ -3,7 +3,6 @@ from pyrogram.types import InlineKeyboardButton
 import config
 from SHUKLAMUSIC import app
 
-
 def start_panel(_):
     buttons = [
         [
@@ -24,7 +23,10 @@ def private_panel(_):
                 url=f"https://t.me/{app.username}?startgroup=true",
             )
         ],
-        [InlineKeyboardButton(text=_["S_B_4"], callback_data="settings_back_helper")],
+        [
+            InlineKeyboardButton(text=_["S_B_4"], callback_data="settings_back_helper"),
+            InlineKeyboardButton("˹ᴛιᴅᴀʟ ᴛᴜɴᴇs˼♪", url=f"http://t.me/TidalXMusicBot/tidaltunes"),
+        ],
         [
             InlineKeyboardButton(text=_["S_B_6"], url=config.SUPPORT_CHANNEL),
             InlineKeyboardButton(text=_["S_B_2"], url=config.SUPPORT_CHAT),
@@ -34,3 +36,5 @@ def private_panel(_):
         ],
     ]
     return buttons
+    
+    
