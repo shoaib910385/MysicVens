@@ -60,13 +60,13 @@ def stream_markup_timer(_, chat_id, played, dur):
             )
         ],
         [
-            InlineKeyboardButton(text=" ᴜᴘᴅᴀᴛᴇ ", url="https://t.me/drxgiveway",),
+            InlineKeyboardButton(text=" ᴜᴘᴅᴀᴛᴇ ", url="https://t.me/thedrxnet",),
             InlineKeyboardButton(text=" sᴜᴘᴘᴏʀᴛ ", url="https://t.me/drx_supportchat",),
         ],
         
         [
             
-            InlineKeyboardButton(text=" ˹ ᴛιᴅᴀʟ ᴛᴜɴᴇs ˼ ♪ ", url="http://t.me/TidalXMusicBot/tidaltunes")
+            InlineKeyboardButton(text="˹ ᴛιᴅᴧʟ ᴛᴜηєs ˼♪", url="http://t.me/TidalXMusicBot/tidaltunes")
         ],
 
         [InlineKeyboardButton(text=_["CLOSE_BUTTON"], callback_data="close")],
@@ -79,11 +79,11 @@ def stream_markup(_, chat_id):
 
         
         [
-            InlineKeyboardButton(text=" ᴜᴘᴅᴀᴛᴇ ", url="https://t.me/drxgiveway",),
+            InlineKeyboardButton(text=" ᴜᴘᴅᴀᴛᴇ ", url="https://t.me/thedrxnet",),
             InlineKeyboardButton(text=" sᴜᴘᴘᴏʀᴛ ", url="https://t.me/drx_supportchat",),
         ],
         [
-                   InlineKeyboardButton(text=" ˹ ᴛιᴅᴀʟ ᴛᴜɴᴇs ˼ ♪ ", url="http://t.me/TidalXMusicBot/tidaltunes")
+                   InlineKeyboardButton(text=" ˹ ᴛιᴅᴧʟ ᴛᴜηєs ˼♪", url="http://t.me/TidalXMusicBot/tidaltunes")
         ], 
        
         [InlineKeyboardButton(text=_["CLOSE_BUTTON"], callback_data="close")],
