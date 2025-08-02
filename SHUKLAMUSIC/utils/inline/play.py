@@ -60,8 +60,8 @@ def stream_markup_timer(_, chat_id, played, dur):
             )
         ],
         [
-            InlineKeyboardButton(text=" ᴜᴘᴅᴀᴛᴇ ", url="https://t.me/thedrxnet",),
-            InlineKeyboardButton(text=" sᴜᴘᴘᴏʀᴛ ", url="https://t.me/drx_supportchat",),
+            InlineKeyboardButton(text=" ˹ηєᴛᴡᴏʀᴋ˼ ", url="https://t.me/thedrxnet",),
+            InlineKeyboardButton(text=" ˹ϻʏ ʜᴏϻє˼ ", url="https://t.me/drx_supportchat",),
         ],
         
         [
@@ -79,8 +79,8 @@ def stream_markup(_, chat_id):
 
         
         [
-            InlineKeyboardButton(text=" ᴜᴘᴅᴀᴛᴇ ", url="https://t.me/thedrxnet",),
-            InlineKeyboardButton(text=" sᴜᴘᴘᴏʀᴛ ", url="https://t.me/drx_supportchat",),
+            InlineKeyboardButton(text=" ˹ηєᴛᴡᴏʀᴋ˼ ", url="https://t.me/thedrxnet",),
+            InlineKeyboardButton(text=" ˹ϻʏ ʜᴏϻє˼ ", url="https://t.me/drx_supportchat",),
         ],
         [
                    InlineKeyboardButton(text=" ˹ ᴛιᴅᴧʟ ᴛᴜηєs ˼♪", url="http://t.me/TidalXMusicBot/tidaltunes")
