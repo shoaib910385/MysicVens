@@ -99,7 +99,7 @@ async def start_group_call(c: Client, m: Message):
     if assistant is None:
         await app.send_message(chat_id, "ᴇʀʀᴏʀ ᴡɪᴛʜ ᴀꜱꜱɪꜱᴛᴀɴᴛ")
         return
-    msg = await app.send_message(chat_id, "<blockquote>ꜱᴛᴀʀᴛɪɴɢ ᴛʜᴇ ᴠᴏɪᴄᴇ ᴄʜᴀᴛ..</blockquote>")
+    msg = await app.send_message(chat_id, "<i><pre>sᴛᴀʀᴛɪɴɢ ᴛʜᴇ ᴠᴏɪᴄᴇ ᴄʜᴀᴛ..</pre></i>")
     try:
         peer = await assistant.resolve_peer(chat_id)
         await assistant.invoke(
@@ -111,7 +111,7 @@ async def start_group_call(c: Client, m: Message):
                 random_id=assistant.rnd_id() // 9000000000,
             )
         )
-        await msg.edit_text("<blockquote>ᴠᴏɪᴄᴇ ᴄʜᴀᴛ ꜱᴛᴀʀᴛᴇᴅ ꜱᴜᴄᴄᴇꜱꜱꜰᴜʟʟʏ ⚡️~!</blockquote>")
+        await msg.edit_text("<i><pre>ᴠᴏɪᴄᴇ ᴄʜᴀᴛ ꜱᴛᴀʀᴛᴇᴅ ꜱᴜᴄᴄᴇꜱꜱꜰᴜʟʟʏ ⚡️~!</pre></i>")
     except ChatAdminRequired:
       try:    
         await app.promote_chat_member(chat_id, assid, privileges=ChatPrivileges(
@@ -146,7 +146,7 @@ async def start_group_call(c: Client, m: Message):
             can_promote_members=False,
             ),
         )                              
-        await msg.edit_text("<blockquote>ᴠᴏɪᴄᴇ ᴄʜᴀᴛ ꜱᴛᴀʀᴛᴇᴅ ꜱᴜᴄᴄᴇꜱꜱꜰᴜʟʟʏ ⚡️~!</blockquote>")
+        await msg.edit_text("<i><pre>ᴠᴏɪᴄᴇ ᴄʜᴀᴛ ꜱᴛᴀʀᴛᴇᴅ ꜱᴜᴄᴄᴇꜱꜱꜰᴜʟʟʏ ⚡️~!</pre></i>")
       except:
          await msg.edit_text("ɢɪᴠᴇ ᴛʜᴇ ʙᴏᴛ ᴀʟʟ ᴘᴇʀᴍɪꜱꜱɪᴏɴꜱ ᴀɴᴅ ᴛʀʏ ᴀɢᴀɪɴ ⚡")
 
@@ -168,7 +168,7 @@ async def stop_group_call(c: Client, m: Message):
         ):  
            return
         await assistant.invoke(DiscardGroupCall(call=group_call))
-        await msg.edit_text("<blockquote>ᴠᴏɪᴄᴇ ᴄʜᴀᴛ ᴄʟᴏꜱᴇᴅ ꜱᴜᴄᴄᴇꜱꜱꜰᴜʟʟʏ ⚡️~!</blockquote>")
+        await msg.edit_text("<i><pre>ᴠᴏɪᴄᴇ ᴄʜᴀᴛ ᴄʟᴏꜱᴇᴅ ꜱᴜᴄᴄᴇꜱꜱꜰᴜʟʟʏ ⚡️~!</pre></i>")
     except Exception as e:
       if "GROUPCALL_FORBIDDEN" in str(e):
        try:    
