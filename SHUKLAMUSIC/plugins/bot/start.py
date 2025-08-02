@@ -143,7 +143,7 @@ async def start_pm(client, message: Message, _):
             random.choice(YUMI_PICS),
             has_spoiler=True,
             caption=_["start_2"].format(message.from_user.mention, app.mention, UP, DISK, CPU, RAM, served_users, served_chats),
-            parse_mode=["HTML"]
+            parse_mode=["HTML"],
             reply_markup=InlineKeyboardMarkup(out),
         )
         if await is_on_off(2):
