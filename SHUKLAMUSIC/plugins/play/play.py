@@ -661,7 +661,7 @@ async def slider_queries(client, CallbackQuery, _):
         buttons = slider_markup(_, vidid, user_id, query, query_type, cplay, fplay)
         med = InputMediaPhoto(
             media=thumbnail,
-            has_spoiler=True
+            has_spoiler=True,
             caption=_["play_10"].format(
                 title.title(),
                 duration_min,
