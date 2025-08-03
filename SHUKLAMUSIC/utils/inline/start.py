@@ -11,6 +11,10 @@ def start_panel(_):
             ),
             InlineKeyboardButton(text=_["S_B_2"], url=config.SUPPORT_CHAT),
         ],
+        [
+            InlineKeyboardButton("˹ᴘʀιᴠᴧᴄʏ ᴘσʟιᴄʏ˼", url=f"https://telegra.ph/Privacy-Policy-08-03-101"),
+            InlineKeyboardButton("˹ᴛιᴅᴧʟ ᴛᴜηєs˼♪", url=f"http://t.me/TidalXMusicBot/tidaltunes"),
+        ],
     ]
     return buttons
 
@@ -24,10 +28,11 @@ def private_panel(_):
             )
         ],
         [
-            InlineKeyboardButton(text=_["S_B_4"], callback_data="settings_back_helper"),
+            InlineKeyboardButton("˹ᴘʀιᴠᴧᴄʏ ᴘσʟιᴄʏ˼", url=f"https://telegra.ph/Privacy-Policy-08-03-101"),
             InlineKeyboardButton("˹ᴛιᴅᴧʟ ᴛᴜηєs˼♪", url=f"http://t.me/TidalXMusicBot/tidaltunes"),
         ],
         [
+            InlineKeyboardButton(text=_["S_B_4"], callback_data="settings_back_helper"),
             InlineKeyboardButton(text=_["S_B_6"], url=config.SUPPORT_CHANNEL),
             InlineKeyboardButton(text=_["S_B_2"], url=config.SUPPORT_CHAT),
         ],
