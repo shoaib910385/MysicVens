@@ -1,4 +1,4 @@
-from datetime import datetime
+yfrom datetime import datetime
 
 from pyrogram import filters
 from pyrogram.types import Message
@@ -16,8 +16,8 @@ from config import BANNED_USERS
 @language
 async def ping_com(client, message: Message, _):
     start = datetime.now()
-    response = await message.reply_photo(
-        video="https://files.catbox.moe/wifnjm.jpg",
+    response = await message.reply_video(
+        video="https://files.catbox.moe/so1jux.mp4",
         caption=_["ping_1"].format(app.mention),
     )
     pytgping = await SHUKLA.ping()
