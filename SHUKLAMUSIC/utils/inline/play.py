@@ -64,9 +64,9 @@ def stream_markup_timer(_, chat_id, played, dur):
             InlineKeyboardButton(text=" ˹ϻʏ ʜᴏϻє˼ ", url="https://t.me/drx_supportchat",),
         ],
         
-        [
-            
-            InlineKeyboardButton(text="˹ ᴛιᴅᴧʟ ᴛᴜηєs ˼♪", url="http://t.me/TidalXMusicBot/tidaltunes")
+     [
+            InlineKeyboardButton("˹ᴘʀιᴠᴧᴄʏ ᴘσʟιᴄʏ˼", url=f"https://telegra.ph/Privacy-Policy-08-03-101"),
+            InlineKeyboardButton("˹ᴛιᴅᴧʟ ᴛᴜηєs˼♪", url=f"http://t.me/TidalXMusicBot/tidaltunes"),
         ],
 
         [InlineKeyboardButton(text=_["CLOSE_BUTTON"], callback_data="close")],
@@ -83,8 +83,9 @@ def stream_markup(_, chat_id):
             InlineKeyboardButton(text=" ˹ϻʏ ʜᴏϻє˼ ", url="https://t.me/drx_supportchat",),
         ],
         [
-                   InlineKeyboardButton(text=" ˹ ᴛιᴅᴧʟ ᴛᴜηєs ˼♪", url="http://t.me/TidalXMusicBot/tidaltunes")
-        ], 
+            InlineKeyboardButton("˹ᴘʀιᴠᴧᴄʏ ᴘσʟιᴄʏ˼", url=f"https://telegra.ph/Privacy-Policy-08-03-101"),
+            InlineKeyboardButton("˹ᴛιᴅᴧʟ ᴛᴜηєs˼♪", url=f"http://t.me/TidalXMusicBot/tidaltunes"),
+        ],
        
         [InlineKeyboardButton(text=_["CLOSE_BUTTON"], callback_data="close")],
     ]
