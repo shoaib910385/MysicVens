@@ -45,14 +45,12 @@ async def active_afk(_, message: Message):
                         caption=f"**{message.from_user.first_name}** ɪs ʙᴀᴄᴋ ᴏɴʟɪɴᴇ ᴀɴᴅ ᴡᴀs ᴀᴡᴀʏ ғᴏʀ {seenago}\n\nʀᴇᴀsᴏɴ: `{reasonafk}`",
                     )
             if afktype == "photo":
-                if str(reasonafk) == "None":
-                    send = await message.reply_photo(
-                        photo=f"downloads/{user_id}.jpg",
-                        caption=f"**{message.from_user.first_name}** ɪs ʙᴀᴄᴋ ᴏɴʟɪɴᴇ ᴀɴᴅ ᴡᴀs ᴀᴡᴀʏ ғᴏʀ {seenago}",
-                    )
+                send = await message.reply_text(
+                    f"**{message.from_user.first_name}** ɪs ʙᴀᴄᴋ ᴏɴʟɪɴᴇ ᴀɴᴅ ᴡᴀs ᴀᴡᴀʏ ғᴏʀ {seenago}\n\nʀᴇᴀsᴏɴ: `{reasonafk}`",
+                    disable_web_page_preview=True,
+                )
                 else:
-                    send = await message.reply_photo(
-                        photo=f"downloads/{user_id}.jpg",
+                    send = await message.reply_text(
                         caption=f"**{message.from_user.first_name}** ɪs ʙᴀᴄᴋ ᴏɴʟɪɴᴇ ᴀɴᴅ ᴡᴀs ᴀᴡᴀʏ ғᴏʀ {seenago}\n\nʀᴇᴀsᴏɴ: `{reasonafk}`",
                     )
         except Exception:
@@ -362,13 +360,13 @@ async def chat_watcher_func(_, message):
                                 )
                         if afktype == "photo":
                             if str(reasonafk) == "None":
-                                send = await message.reply_photo(
-                                    photo=f"downloads/{user_id}.jpg",
-                                    caption=f"**{first_name[:25]}** ɪs ᴀғᴋ sɪɴᴄᴇ {seenago}\n\n",
+                                send = await message.reply_text(
+                    f"**{message.from_user.first_name}** ɪs ʙᴀᴄᴋ ᴏɴʟɪɴᴇ ᴀɴᴅ ᴡᴀs ᴀᴡᴀʏ ғᴏʀ {seenago}\n\nʀᴇᴀsᴏɴ: `{reasonafk}`",
+                    disable_web_page_preview=True,
+
                                 )
                             else:
-                                send = await message.reply_photo(
-                                    photo=f"downloads/{user_id}.jpg",
+                                send = await message.reply_text(
                                     caption=f"**{first_name[:25]}** ɪs ᴀғᴋ sɪɴᴄᴇ {seenago}\n\nʀᴇᴀsᴏɴ: `{reasonafk}`\n\n",
                                 )
                     except:
