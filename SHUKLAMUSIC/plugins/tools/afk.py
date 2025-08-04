@@ -13,7 +13,7 @@ async def active_afk(_, message: Message):
         return
     user_id = message.from_user.id
 
-    # Only set AFK status without checking/removing it
+    # Set AFK status first
     if len(message.command) == 1 and not message.reply_to_message:
         details = {
             "type": "text",
@@ -54,20 +54,22 @@ async def chat_watcher_func(_, message):
     msg = ""
     replied_user_id = 0
 
-    verifier, reasondb = await is_afk(userid)
-    if verifier:
-        await remove_afk(userid)
-        try:
-            afktype = reasondb["type"]
-            timeafk = reasondb["time"]
-            reasonafk = reasondb["reason"]
-            seenago = get_readable_time((int(time.time() - timeafk)))
-            if afktype == "text":
-                msg += f"**{user_name[:25]}** ɪs ʙᴀᴄᴋ ᴏɴʟɪɴᴇ ᴀɴᴅ ᴡᴀs ᴀᴡᴀʏ ғᴏʀ {seenago}\n\n"
-            if afktype == "text_reason":
-                msg += f"**{user_name[:25]}** ɪs ʙᴀᴄᴋ ᴏɴʟɪɴᴇ ᴀɴᴅ ᴡᴀs ᴀᴡᴀʏ ғᴏʀ {seenago}\n\nʀᴇᴀsᴏɴ: `{reasonafk}`\n\n"
-        except:
-            msg += f"**{user_name[:25]}** ɪs ʙᴀᴄᴋ ᴏɴʟɪɴᴇ\n\n"
+    # Check if user is AFK, but ignore if they just sent the AFK command
+    if message.text and message.text.split()[0].lower() not in ["/afk", f"/afk@{BOT_USERNAME}", "/brb", f"/brb@{BOT_USERNAME}"]:
+        verifier, reasondb = await is_afk(userid)
+        if verifier:
+            await remove_afk(userid)
+            try:
+                afktype = reasondb["type"]
+                timeafk = reasondb["time"]
+                reasonafk = reasondb["reason"]
+                seenago = get_readable_time((int(time.time() - timeafk)))
+                if afktype == "text":
+                    msg += f"**{user_name[:25]}** ɪs ʙᴀᴄᴋ ᴏɴʟɪɴᴇ ᴀɴᴅ ᴡᴀs ᴀᴡᴀʏ ғᴏʀ {seenago}\n\n"
+                if afktype == "text_reason":
+                    msg += f"**{user_name[:25]}** ɪs ʙᴀᴄᴋ ᴏɴʟɪɴᴇ ᴀɴᴅ ᴡᴀs ᴀᴡᴀʏ ғᴏʀ {seenago}\n\nʀᴇᴀsᴏɴ: `{reasonafk}`\n\n"
+            except:
+                msg += f"**{user_name[:25]}** ɪs ʙᴀᴄᴋ ᴏɴʟɪɴᴇ\n\n"
 
     if message.reply_to_message:
         try:
