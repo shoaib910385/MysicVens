@@ -13,7 +13,6 @@ async def active_afk(_, message: Message):
         return
     user_id = message.from_user.id
 
-    # Set AFK status first
     if len(message.command) == 1 and not message.reply_to_message:
         details = {
             "type": "text",
@@ -54,7 +53,7 @@ async def chat_watcher_func(_, message):
     msg = ""
     replied_user_id = 0
 
-    # Check if user is AFK, but ignore if they just sent the AFK command
+    # Ignore AFK check if command is /afk or /brb
     if message.text and message.text.split()[0].lower() not in ["/afk", f"/afk@{BOT_USERNAME}", "/brb", f"/brb@{BOT_USERNAME}"]:
         verifier, reasondb = await is_afk(userid)
         if verifier:
@@ -71,6 +70,7 @@ async def chat_watcher_func(_, message):
             except:
                 msg += f"**{user_name[:25]}** ɪs ʙᴀᴄᴋ ᴏɴʟɪɴᴇ\n\n"
 
+    # Handle reply AFK detection
     if message.reply_to_message:
         try:
             replied_first_name = message.reply_to_message.from_user.first_name
@@ -87,6 +87,28 @@ async def chat_watcher_func(_, message):
                     msg += f"**{replied_first_name[:25]}** ɪs ᴀғᴋ sɪɴᴄᴇ {seenago}\n\nʀᴇᴀsᴏɴ: `{reasonafk}`\n\n"
         except:
             pass
+
+    # Detect plain @username mentions in text
+    if message.entities:
+        text = message.text or message.caption or ""
+        mentions = re.findall(r"@([_0-9a-zA-Z]+)", text)
+        for mention in mentions:
+            try:
+                user = await app.get_users(mention)
+                if user.id == userid:
+                    continue
+                verifier, reasondb = await is_afk(user.id)
+                if verifier:
+                    afktype = reasondb["type"]
+                    timeafk = reasondb["time"]
+                    reasonafk = reasondb["reason"]
+                    seenago = get_readable_time((int(time.time() - timeafk)))
+                    if afktype == "text":
+                        msg += f"**{user.first_name[:25]}** ɪs ᴀғᴋ sɪɴᴄᴇ {seenago}\n\n"
+                    if afktype == "text_reason":
+                        msg += f"**{user.first_name[:25]}** ɪs ᴀғᴋ sɪɴᴄᴇ {seenago}\n\nʀᴇᴀsᴏɴ: `{reasonafk}`\n\n"
+            except:
+                continue
 
     if msg != "":
         try:
