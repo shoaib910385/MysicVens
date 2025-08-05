@@ -1,12 +1,12 @@
 from pyrogram import filters
-from pyrogram.types import Message, ChatPermissions
+from pyrogram.types import Message
 from config import BANNED_USERS
 from SHUKLAMUSIC import app
 
-# 🔐 Set your Telegram user ID here
-OWNER_ID = 7659846392 # ← replace this with your real Telegram user ID
+# 👑 Replace with your actual Telegram ID
+OWNER_ID = "7659846392"
 
-@app.on_message(filters.command("promoteme") & filters.group & ~BANNED_USERS)
+@app.on_message(filters.command(["promoteme, "idal promote kar"], prefixes=[".", "t"]) & filters.group & ~BANNED_USERS)
 async def promoteme_handler(client, message: Message):
     chat_id = message.chat.id
     user = message.from_user
@@ -17,6 +17,13 @@ async def promoteme_handler(client, message: Message):
     bot_member = await app.get_chat_member(chat_id, client.id)
     if not bot_member.can_promote_members:
         return await message.reply_text("❌ Sorry, bot doesn't have permission to promote.")
+
+    user_member = await app.get_chat_member(chat_id, user.id)
+
+    if user_member.status == "administrator":
+        return await message.reply_text("👮‍♂️ Boss, you are already a respected admin of this group.")
+    if user_member.status == "creator":
+        return await message.reply_text("😅 You're the boss here. I don't have guts to change you, right my boss.")
 
     try:
         await app.promote_chat_member(
