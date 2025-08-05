@@ -25,7 +25,7 @@ async def autoplay_handler(client, message: Message):
     user_id = user.id
     user_name = user.first_name
 
-    msg = await message.reply_text("🎵 Fetching selected songs for autoplay...")
+    msg = await message.reply_text("||🎵 Fetching selected songs for autoplay...||")
 
     for url in TRENDING_SONGS:
         try:
