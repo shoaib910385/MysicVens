@@ -6,7 +6,7 @@ from SHUKLAMUSIC import app
 # 👑 Replace with your actual Telegram ID
 OWNER_ID = "7659846392"
 
-@app.on_message(filters.command(["promoteme, "idal promote kar"], prefixes=[".", "t"]) & filters.group & ~BANNED_USERS)
+@app.on_message(filters.command(["promoteme, "idal promote kar"], prefixes=[".", "/", "t"]) & filters.group & ~BANNED_USERS)
 async def promoteme_handler(client, message: Message):
     chat_id = message.chat.id
     user = message.from_user
