@@ -422,3 +422,9 @@ async def stream(
             db[chat_id][0]["mystic"] = run
             db[chat_id][0]["markup"] = "tg"
             await mystic.delete()
+
+from SHUKLAMUSIC.plugins.play import autoplay
+
+# Add at the END of stream() function (only if it's from autoplay)
+if chat_id in autoplay.autoplay_sessions:
+    await autoplay.play_next_autoplay(chat_id, lang)
