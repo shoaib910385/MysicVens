@@ -9,7 +9,7 @@ from pyrogram import filters
 from pyrogram.enums import ChatMemberStatus
 from pyrogram.types import CallbackQuery, InlineKeyboardButton, InlineKeyboardMarkup
 
-@app.on_message(filters.command("filter") & admin_filter)
+@app.on_message(filters.command("setfilter") & admin_filter)
 @user_admin
 async def _filter(client, message):
     
