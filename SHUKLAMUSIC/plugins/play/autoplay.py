@@ -2,14 +2,14 @@ import random
 from pyrogram import filters
 from pyrogram.types import Message
 from config import BANNED_USERS
-from SHUKLAMUSIC import app, YouTube, SHUKLA
+from SHUKLAMUSIC import app, YouTube
 from SHUKLAMUSIC.utils.stream.stream import stream
 from SHUKLAMUSIC.utils.decorators.language import LanguageStart
 
-# Tracks autoplay state per chat
+# Stores autoplay sessions per chat
 autoplay_sessions = {}
 
-# Hindi/popular songs list
+# List of songs to randomly pick from
 TRENDING_SONGS = [
     "https://www.youtube.com/watch?v=dvYMyqO2PZg",  # Saiyaara
     "https://www.youtube.com/watch?v=pbxgHqPizRg",  # Qatal
@@ -24,37 +24,30 @@ TRENDING_SONGS = [
 ]
 
 
-# ▶️ Start autoplay
 @app.on_message(filters.command("autoplay") & filters.group & ~BANNED_USERS)
 @LanguageStart
 async def start_autoplay(client, message: Message, _):
     chat_id = message.chat.id
     user = message.from_user
 
-    # Pick 5 random songs
     selected = random.sample(TRENDING_SONGS, 5)
     autoplay_sessions[chat_id] = {
         "songs": selected,
         "index": 0,
         "user_id": user.id,
         "user_name": user.first_name,
-        "start_msg": None,
+        "start_msg": await message.reply_text("▶️ Started Autoplay. Playing 5 trending songs..."),
     }
-
-    start_msg = await message.reply_text("▶️ Started Autoplay. Playing 5 trending songs...")
-    autoplay_sessions[chat_id]["start_msg"] = start_msg
 
     await play_next_autoplay(chat_id, _)
 
 
-# ⏭ Play next song automatically
 async def play_next_autoplay(chat_id, _):
     session = autoplay_sessions.get(chat_id)
     if not session:
         return
 
     if session["index"] >= len(session["songs"]):
-        # End autoplay
         if session.get("start_msg"):
             try:
                 await session["start_msg"].reply("✅ Autoplay finished after 5 songs.")
@@ -69,12 +62,12 @@ async def play_next_autoplay(chat_id, _):
     try:
         details, _id = await YouTube.track(url)
     except Exception:
-        return await play_next_autoplay(chat_id, _)  # skip and move to next
+        return await play_next_autoplay(chat_id, _)  # skip bad song
 
     try:
         await stream(
             _,
-            None,  # no separate stream start message
+            None,
             session["user_id"],
             details,
             chat_id,
@@ -83,17 +76,9 @@ async def play_next_autoplay(chat_id, _):
             streamtype="youtube",
         )
     except Exception:
-        return await play_next_autoplay(chat_id, _)  # skip and move to next
+        return await play_next_autoplay(chat_id, _)  # skip failed stream
 
 
-# 🔚 When stream ends, move to next
-@SHUKLA.on_stream_end
-async def stream_end_handler(_, client, stream_data, chat_id):
-    if chat_id in autoplay_sessions:
-        await play_next_autoplay(chat_id, _)
-
-
-# ⛔️ Stop autoplay
 @app.on_message(filters.command("stopautoplay") & filters.group & ~BANNED_USERS)
 @LanguageStart
 async def stop_autoplay_handler(client, message: Message, _):
