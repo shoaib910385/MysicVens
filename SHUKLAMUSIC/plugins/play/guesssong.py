@@ -4,52 +4,54 @@ from pyrogram import filters
 from pyrogram.types import Message
 from config import BANNED_USERS
 from SHUKLAMUSIC import app, YouTube
+from SHUKLAMUSIC.core.call import SHUKLA
 from SHUKLAMUSIC.utils.stream.stream import stream
 from SHUKLAMUSIC.utils.decorators.language import LanguageStart
 
-# Tracks ongoing game sessions: {chat_id: {"answer": str, "active": bool}}
+# Stores current guessing game sessions per chat
 guess_sessions = {}
 
-# Song list for guessing (name + url)
+# List of song titles and URLs
 GUESS_SONGS = [
-    {"title": "Saiyaara", "url": "https://www.youtube.com/watch?v=dvYMyqO2PZg"},
-    {"title": "Qatal", "url": "https://www.youtube.com/watch?v=pbxgHqPizRg"},
-    {"title": "Baby Doll", "url": "https://www.youtube.com/watch?v=ZKzuh0AQSBI"},
-    {"title": "Pink Lips", "url": "https://www.youtube.com/watch?v=KJhL7U95Ug8"},
-    {"title": "Tu Jaane Na", "url": "https://www.youtube.com/watch?v=WoBFeCRfV20"},
-    {"title": "Offo", "url": "https://www.youtube.com/watch?v=ghzMGkZC4nY"},
-    {"title": "Attention", "url": "https://www.youtube.com/watch?v=nfs8NYg7yQM"},
-    {"title": "Pal Pal Dil Ke Paas", "url": "https://www.youtube.com/watch?v=az4R5G5v1bA"},
-    {"title": "Zaroorat", "url": "https://www.youtube.com/watch?v=GzU8KqOY8YA"},
+    {"Saiyaar": "Saiyaara", "url": "https://www.youtube.com/watch?v=dvYMyqO2PZg"},
+    {"qatal": "Qatal", "url": "https://www.youtube.com/watch?v=pbxgHqPizRg"},
+    {"baby doll": "Baby Doll", "url": "https://www.youtube.com/watch?v=ZKzuh0AQSBI"},
+    {"pink lips": "Pink Lips", "url": "https://www.youtube.com/watch?v=KJhL7U95Ug8"},
+    {"tu jaane na": "Tu Jaane Na", "url": "https://www.youtube.com/watch?v=WoBFeCRfV20"},
+    {"offo": "Offo", "url": "https://www.youtube.com/watch?v=ghzMGkZC4nY"},
+    {"attention": "Attention", "url": "https://www.youtube.com/watch?v=nfs8NYg7yQM"},
+    {"pal pal dil ke paas": "Pal Pal Dil Ke Paas", "url": "https://www.youtube.com/watch?v=az4R5G5v1bA"},
+    {"zaroorat": "Zaroorat", "url": "https://www.youtube.com/watch?v=GzU8KqOY8YA"},
 ]
 
 @app.on_message(filters.command("guesssong") & filters.group & ~BANNED_USERS)
 @LanguageStart
-async def guess_song_game(client, message: Message, _):
+async def start_guess_song(client, message: Message, _):
     chat_id = message.chat.id
 
-    if guess_sessions.get(chat_id, {}).get("active"):
-        return await message.reply_text("❗ A guessing game is already in progress!")
+    if chat_id in guess_sessions:
+        return await message.reply_text("⚠️ A guessing game is already running!")
 
-    # Pick a random song
     song = random.choice(GUESS_SONGS)
+    title = song["title"].strip().lower()
+    video_id = song["url"].split("v=")[-1]
+
+    try:
+        details, _id = await YouTube.track(video_id)
+    except Exception as e:
+        return await message.reply_text("❌ Couldn't fetch the song. Try again.")
+
+    # Save session
     guess_sessions[chat_id] = {
-        "answer": song["title"].lower(),
-        "active": True,
-        "winner": None
+        "answer": title,
+        "guessed": False,
+        "winner": None,
     }
 
-    # Fetch stream data
-    try:
-        details, _id = await YouTube.track(song["url"])
-    except Exception as e:
-        guess_sessions.pop(chat_id, None)
-        return await message.reply_text("❌ Couldn't fetch the song, try again.")
+    await message.reply_text(
+        "🎵 A song is now playing in VC.\n\nGuess the song title using:\n`/guess your answer`\n\nYou have 30 seconds!"
+    )
 
-    # Announce game start
-    await message.reply_text("🎵 Guess The Song!\nI've started playing 10 seconds of a song in VC. First to guess wins!\n\nType the name of the song in chat!")
-
-    # Start stream
     try:
         await stream(
             _,
@@ -65,37 +67,44 @@ async def guess_song_game(client, message: Message, _):
         guess_sessions.pop(chat_id, None)
         return await message.reply_text("❌ Failed to stream the song.")
 
-    # Wait 10 seconds (play preview)
+    # Let it play 10s, then stop VC
     await asyncio.sleep(10)
+    try:
+        await SHUKLA.leave_group_call(chat_id)
+    except:
+        pass
 
-    # Stop music after 10s
-    from SHUKLAMUSIC.core.call import SHUKLA
-    await SHUKLA.leave_group_call(chat_id)
-
-    # Wait 20 more seconds for guesses
+    # Wait 20s more for guesses
     await asyncio.sleep(20)
 
-    # Game End
-    if guess_sessions[chat_id]["winner"]:
-        winner = guess_sessions[chat_id]["winner"]
-        await app.send_message(chat_id, f"🏆 {winner} guessed it right!\n✅ Answer: `{song['title']}`")
-    else:
-        await app.send_message(chat_id, f"⏱ Time's up!\n❌ No one guessed it.\nCorrect Answer: `{song['title']}`")
+    session = guess_sessions.get(chat_id)
+    if session and not session["guessed"]:
+        await message.reply_text(
+            f"⏱ Time's up! No one guessed it.\n✅ Correct answer: `{song['title']}`"
+        )
 
     guess_sessions.pop(chat_id, None)
 
 
-@app.on_message(filters.text & filters.group & ~BANNED_USERS)
+@app.on_message(filters.command("guess") & filters.group & ~BANNED_USERS)
 async def check_guess(client, message: Message):
     chat_id = message.chat.id
     session = guess_sessions.get(chat_id)
 
-    if not session or not session.get("active"):
+    if not session or session["guessed"]:
         return
 
-    guess = message.text.lower().strip()
+    user_guess = message.text.split(" ", 1)
+    if len(user_guess) < 2:
+        return await message.reply_text("❗Usage: `/guess your answer`", quote=True)
+
+    guess = user_guess[1].strip().lower()
     correct = session["answer"]
 
     if correct in guess:
-        session["active"] = False
+        session["guessed"] = True
         session["winner"] = message.from_user.mention
+        await message.reply_text(
+            f"🎉 {session['winner']} guessed it right!\n✅ Answer: `{correct.title()}`"
+        )
+        guess_sessions.pop(chat_id, None)
