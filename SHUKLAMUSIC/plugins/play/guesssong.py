@@ -13,15 +13,15 @@ guess_sessions = {}
 
 # List of song titles and URLs
 GUESS_SONGS = [
-    {"Saiyaar": "Saiyaara", "url": "https://www.youtube.com/watch?v=dvYMyqO2PZg"},
-    {"qatal": "Qatal", "url": "https://www.youtube.com/watch?v=pbxgHqPizRg"},
-    {"baby doll": "Baby Doll", "url": "https://www.youtube.com/watch?v=ZKzuh0AQSBI"},
-    {"pink lips": "Pink Lips", "url": "https://www.youtube.com/watch?v=KJhL7U95Ug8"},
-    {"tu jaane na": "Tu Jaane Na", "url": "https://www.youtube.com/watch?v=WoBFeCRfV20"},
-    {"offo": "Offo", "url": "https://www.youtube.com/watch?v=ghzMGkZC4nY"},
-    {"attention": "Attention", "url": "https://www.youtube.com/watch?v=nfs8NYg7yQM"},
-    {"pal pal dil ke paas": "Pal Pal Dil Ke Paas", "url": "https://www.youtube.com/watch?v=az4R5G5v1bA"},
-    {"zaroorat": "Zaroorat", "url": "https://www.youtube.com/watch?v=GzU8KqOY8YA"},
+    {"title": "Saiyaara", "url": "https://www.youtube.com/watch?v=dvYMyqO2PZg"},
+    {"title": "Qatal", "url": "https://www.youtube.com/watch?v=pbxgHqPizRg"},
+    {"title": "Baby Doll", "url": "https://www.youtube.com/watch?v=ZKzuh0AQSBI"},
+    {"title": "Pink Lips", "url": "https://www.youtube.com/watch?v=KJhL7U95Ug8"},
+    {"title": "Tu Jaane Na", "url": "https://www.youtube.com/watch?v=WoBFeCRfV20"},
+    {"title": "Offo", "url": "https://www.youtube.com/watch?v=ghzMGkZC4nY"},
+    {"title": "Attention", "url": "https://www.youtube.com/watch?v=nfs8NYg7yQM"},
+    {"title": "Pal Pal Dil Ke Paas", "url": "https://www.youtube.com/watch?v=az4R5G5v1bA"},
+    {"title": "Zaroorat", "url": "https://www.youtube.com/watch?v=GzU8KqOY8YA"},
 ]
 
 @app.on_message(filters.command("guesssong") & filters.group & ~BANNED_USERS)
