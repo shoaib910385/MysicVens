@@ -596,6 +596,6 @@ async def add_playlist(client, CallbackQuery, _):
                 ]
             ]
         )
-        return await CallbackQuery.edit_message_text(text="**➻ ʀᴇᴄᴏᴠᴇʀᴇᴅ sᴏɴɢ ɪɴ ʏᴏᴜʀ ᴘʟᴀʏʟɪsᴛ**\n\n**➥ Cʜᴇᴄᴋ Pʟᴀʏʟɪsᴛ ʙʏ /playlist**\n\n**➥ ᴅᴇʟᴇᴛᴇ ᴘʟᴀʏʟɪsᴛ ʙʏ » /delplaylist**\n\n**➥ ᴀɴᴅ ᴘʟᴀʏ ᴘʟᴀʏʟɪsᴛ ʙʏ » /play**",
+        return await CallbackQuery.edit_message_text(text="**➻ ʀᴇᴄᴏᴠᴇʀᴇᴅ sᴏɴɢ ɪɴ ʏᴏᴜʀ ᴘʟᴀʏʟɪsᴛ**\n\n**➥ Cʜᴇᴄᴋ Pʟᴀʏʟɪsᴛ ʙʏ /playlist**\n\n**➥ ᴅᴇʟᴇᴛᴇ ᴘʟᴀʏʟɪsᴛ ʙʏ » /delplaylist**\n\n**➥ ᴀɴᴅ ᴘʟᴀʏ ᴘʟᴀʏʟɪsᴛ ʙʏ » /play**",)
             reply_markup=keyboardss
   
