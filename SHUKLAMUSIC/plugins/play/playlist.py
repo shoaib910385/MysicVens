@@ -21,7 +21,7 @@ from SHUKLAMUSIC.utils.decorators.language import language, languageCB
 from SHUKLAMUSIC.utils.inline.playlist import (botplaylist_markup,
                                               get_playlist_markup,
                                               warning_markup)
-from SHUKLAMUSIC.utils.pastebin import SHUKLABIN
+from SHUKLAMUSIC.utils.pastebin import SHUKLABin
 import time
 import yt_dlp
 from youtube_search import YoutubeSearch
@@ -115,7 +115,7 @@ async def check_playlist(client, message: Message, _):
         count += 1
         msg += f"\n\n{count}- {title[:70]}\n"
         msg += _["playlist_5"].format(duration)
-    link = await SHUKLABIN(msg)
+    link = await SHUKLABin(msg)
     lines = msg.count("\n")
     if lines >= 17:
         car = os.linesep.join(msg.split(os.linesep)[:17])
