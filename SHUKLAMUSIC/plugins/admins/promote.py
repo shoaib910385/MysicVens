@@ -72,7 +72,7 @@ def format_promotion_message(chat_name, user_mention, admin_mention, action):
         f"ᴀᴅᴍɪɴ : {admin_mention}"
     )
 
-@app.on_message(filters.command(["promote, admin")], prefixes=["/"]))
+@app.on_message(filters.command(["promote, admin"], prefixes=["/"]))
 @admin_required("can_promote_members")
 async def promote_command_handler(client, message):
     user_id, first_name, title = await extract_user_and_title(message, client)
