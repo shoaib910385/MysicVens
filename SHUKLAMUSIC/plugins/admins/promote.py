@@ -109,6 +109,18 @@ async def promote_command_handler(client, message):
         msg = format_promotion_message(chat_name, user_mention, admin_mention, action="promote")
         await message.reply_text(msg)
     except ChatAdminRequired:
+      try:    
+        await app.promote_chat_member(chat_id, assid, privileges=ChatPrivileges(
+                can_manage_chat=False,
+                can_delete_messages=False,
+                can_manage_video_chats=True,
+                can_restrict_members=False,
+                can_change_info=False,
+                can_invite_users=False,
+                can_pin_messages=False,
+                can_promote_members=False,
+            ),
+        )
         await message.reply_text("I need to be an admin with promote permissions.")
     except Exception as e:
         await message.reply_text(f"An error occurred: {e}")
