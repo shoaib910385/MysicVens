@@ -84,10 +84,7 @@ async def promote_command_handler(client, message):
             await message.reply_text("This user is already an admin.")
             return
 
-        await client.promote_chat_member(
-            chat_id=message.chat.id,
-            user_id=user_id,
-            privileges=ChatPrivileges(
+        await client.promote_chat_member(chat_id=message.chat.id, user_id=user_id, privileges=ChatPrivileges(
                 can_change_info=False,
                 can_delete_messages=True,
                 can_invite_users=True,
@@ -128,10 +125,7 @@ async def fullpromote_command_handler(client, message):
             await message.reply_text("This user is already an admin.")
             return
 
-        await client.promote_chat_member(
-            chat_id=message.chat.id,
-            user_id=user_id,
-            privileges=ChatPrivileges(
+        await client.promote_chat_member(chat_id=message.chat.id, user_id=user_id, privileges=ChatPrivileges(
                 can_manage_chat=True,
                 can_change_info=True,
                 can_delete_messages=True,
@@ -172,10 +166,7 @@ async def demote_command_handler(client, message):
             await message.reply_text("This user is not an admin.")
             return
 
-        await client.promote_chat_member(
-            chat_id=message.chat.id,
-            user_id=user_id,
-            privileges=ChatPrivileges(
+        await client.promote_chat_member(chat_id=message.chat.id, user_id=user_id, privileges=ChatPrivileges(
                 can_change_info=False,
                 can_invite_users=False,
                 can_delete_messages=False,
