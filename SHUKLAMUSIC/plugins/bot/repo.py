@@ -8,12 +8,10 @@ from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
 start_txt = """
 Jᴀᴀ ʜᴀɪ ᴘᴀᴅʜᴀɪ ᴋʀ Jᴀᴀᴋᴇ ᴀᴀʏᴀ ʙᴀᴅᴀ ʀᴇᴘᴏ ᴅᴇᴋʜɴᴇ ᴡᴀʟᴀ !
-
 <pre>||➥ᴜᴘᴛɪᴍᴇ: 𝟷ʜ:𝟹𝟺ᴍ:𝟻𝟺s
 ➥sᴇʀᴠᴇʀ sᴛᴏʀᴀɢᴇ: 𝟸𝟽.𝟺%
 ➥ᴄᴘᴜ ʟᴏᴀᴅ: 𝟷𝟷.𝟸%
 ➥ʀᴀᴍ ᴄᴏɴsᴜᴍᴘᴛɪᴏɴ: 𝟷𝟽.𝟻%||</pre>
-
 •──────────────────•
 ᴘᴏᴡєʀєᴅ ʙʏ»|| [- 𝛅ⴕ᧘ᥧ𝚱𝛜Ʀ ⌯](https://t.me/hehe_stalker)||
 •──────────────────•
