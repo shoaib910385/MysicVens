@@ -7,16 +7,7 @@ import httpx
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
 start_txt = """
-❥ ωєℓ¢σмє тσ 𒌋❰𝗗𝗥𝗫❱™
-
-❥ ʀᴇᴘᴏ ᴄʜᴀᴀʜɪʏʀ ᴛᴏ ʙᴏᴛ ᴋᴏ 
-
-❥ 5 ɢᴄ ᴍᴀɪ ᴀᴅᴅ ᴋᴀʀ ᴋᴇ 
-
-❥ ᴀᴅᴍɪɴ ʙᴀɴᴏ ᴀᴜʀ sᴄʀᴇᴇɴsʜᴏᴛ 
-     
-❥ @HEHE_STALKER ᴋᴏ ᴅᴏ ғɪʀ ʀᴇᴘᴏ ᴍɪʟ sᴀᴋᴛɪ ʜᴀɪ 
-
+Jᴀᴀ ʜᴀɪ ᴘᴀᴅʜᴀɪ ᴋʀ Jᴀᴀᴋᴇ ᴀᴀʏᴀ ʙᴀᴅᴀ ʀᴇᴘᴏ ᴅᴇᴋʜɴᴇ ᴡᴀʟᴀ !
 """
 
 
@@ -30,7 +21,7 @@ async def start(_, msg):
         ],
         [
           InlineKeyboardButton("ѕυρρσɾƚ", url="https://t.me/drx_supportchat"),
-          InlineKeyboardButton("愛|𝗦𝗧么𝗟𝗞𝚵𝗥™", url="https://t.me/hehe_stalker"),
+          InlineKeyboardButton("˹ ᴍʏ ʟᴏʀᴅ ˼ 👑 ", url="https://t.me/hehe_stalker"),
           ],
                [
                 InlineKeyboardButton("𒌋❰𝗗𝗥𝗫❱™", url=f"https://t.me/thedrxnet"),
