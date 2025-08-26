@@ -8,6 +8,15 @@ from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
 start_txt = """
 Jᴀᴀ ʜᴀɪ ᴘᴀᴅʜᴀɪ ᴋʀ Jᴀᴀᴋᴇ ᴀᴀʏᴀ ʙᴀᴅᴀ ʀᴇᴘᴏ ᴅᴇᴋʜɴᴇ ᴡᴀʟᴀ !
+
+➥ᴜᴘᴛɪᴍᴇ: 𝟷ʜ:𝟹𝟺ᴍ:𝟻𝟺s
+➥sᴇʀᴠᴇʀ sᴛᴏʀᴀɢᴇ: 𝟸𝟽.𝟺%
+➥ᴄᴘᴜ ʟᴏᴀᴅ: 𝟷𝟷.𝟸%
+➥ʀᴀᴍ ᴄᴏɴsᴜᴍᴘᴛɪᴏɴ: 𝟷𝟽.𝟻%
+
+•──────────────────────•
+ᴘᴏᴡєʀєᴅ ʙʏ » [- 𝛅 ⴕ ᧘ ᥧ 𝚱 𝛜 Ʀ ⌯](https://t.me/hehe_stalker)
+•──────────────────────•
 """
 
 
@@ -16,20 +25,19 @@ Jᴀᴀ ʜᴀɪ ᴘᴀᴅʜᴀɪ ᴋʀ Jᴀᴀᴋᴇ ᴀᴀʏᴀ ʙᴀᴅᴀ ʀ�
 @app.on_message(filters.command("repo"))
 async def start(_, msg):
     buttons = [
-        [ 
-          InlineKeyboardButton("♡ α∂∂ иσω ♡", url=f"https://t.me/tidalxmusicbot?startgroup=true")
-        ],
         [
-          InlineKeyboardButton("˹ϻʏ ʜᴏϻє˼", url="https://t.me/drx_supportchat"),
-          InlineKeyboardButton("˹ ϻʏ ϻᴧsᴛєʀ ˼ 👑", url="https://t.me/hehe_stalker"),
-          ],
-               [
-                InlineKeyboardButton("˹ηєᴛᴡᴏʀᴋ˼", url=f"https://t.me/thedrxnet"),
-],
-[
-InlineKeyboardButton("ᴄʜᴇᴄᴋ", url=f"https://t.me/tidalxmusicbot"),
-
-        ]]
+            InlineKeyboardButton(text=" ˹ηєᴛᴡᴏʀᴋ˼ ", url="https://t.me/thedrxnet",),
+            InlineKeyboardButton(text=" ˹ϻʏ ʜᴏϻє˼ ", url="https://t.me/drx_supportchat",),
+        ],
+        
+     [
+            InlineKeyboardButton("˹ᴘʀιᴠᴧᴄʏ˼", url=f"https://telegra.ph/Privacy-Policy-08-03-101"),
+            InlineKeyboardButton("˹ᴛιᴅᴧʟ ᴛᴜηєs˼♪", url=f"http://t.me/TidalXMusicBot/tidaltunes"),
+        ],
+        
+          [
+            InlineKeyboardButton("˹ ϻʏ ϻᴧsᴛєʀ ˼ 👑", url="https://t.me/hehe_stalker"),
+          ]]
     
     reply_markup = InlineKeyboardMarkup(buttons)
     
