@@ -20,11 +20,11 @@ async def start(_, msg):
           InlineKeyboardButton("♡ α∂∂ иσω ♡", url=f"https://t.me/tidalxmusicbot?startgroup=true")
         ],
         [
-          InlineKeyboardButton("ѕυρρσɾƚ", url="https://t.me/drx_supportchat"),
-          InlineKeyboardButton("˹ ᴍʏ ʟᴏʀᴅ ˼ 👑 ", url="https://t.me/hehe_stalker"),
+          InlineKeyboardButton("˹ϻʏ ʜᴏϻє˼", url="https://t.me/drx_supportchat"),
+          InlineKeyboardButton("˹ ϻʏ ϻᴧsᴛєʀ ˼ 👑", url="https://t.me/hehe_stalker"),
           ],
                [
-                InlineKeyboardButton("𒌋❰𝗗𝗥𝗫❱™", url=f"https://t.me/thedrxnet"),
+                InlineKeyboardButton("˹ηєᴛᴡᴏʀᴋ˼", url=f"https://t.me/thedrxnet"),
 ],
 [
 InlineKeyboardButton("ᴄʜᴇᴄᴋ", url=f"https://t.me/tidalxmusicbot"),
