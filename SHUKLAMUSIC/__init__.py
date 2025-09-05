@@ -27,4 +27,4 @@ Resso = RessoAPI()
 Telegram = TeleAPI()
 YouTube = YouTubeAPI()
 
-APP = "ll_DRAGON_MUSIC_BOT"  # connect music api key "Dont change it"
+APP = "TIDALXMUSICBOT"  # connect music api key "Dont change it"
