@@ -12,9 +12,9 @@ API_HASH = getenv("API_HASH")
 BOT_TOKEN = getenv("BOT_TOKEN")
 
 # Bot and owner info
-OWNER_USERNAME = getenv("OWNER_USERNAME", "HEHE_STALKER")
-BOT_USERNAME = getenv("BOT_USERNAME", "tidalxmusicbot")
-BOT_NAME = getenv("BOT_NAME", "TIDAL")
+OWNER_USERNAME = getenv("OWNER_USERNAME", "Imvalrik")
+BOT_USERNAME = getenv("BOT_USERNAME", "venesamusicbot")
+BOT_NAME = getenv("BOT_NAME", "venesa")
 ASSUSERNAME = getenv("ASSUSERNAME", "THEDRXNET")
 
 # MongoDB
@@ -22,21 +22,21 @@ MONGO_DB_URI = getenv("MONGO_DB_URI", None)
 
 # Limits and IDs
 DURATION_LIMIT_MIN = int(getenv("DURATION_LIMIT", 17000))
-LOGGER_ID = int(getenv("LOGGER_ID", -1002329141957))
-OWNER_ID = int(getenv("OWNER_ID", 7659846392))
+LOGGER_ID = int(getenv("LOGGER_ID", -1003143218952))
+OWNER_ID = int(getenv("OWNER_ID", 8328573657))
 
 # Heroku
 HEROKU_APP_NAME = getenv("HEROKU_APP_NAME")
 HEROKU_API_KEY = getenv("HEROKU_API_KEY")
 
 # Git
-UPSTREAM_REPO = getenv("UPSTREAM_REPO", "https://github.com/shoaib910385/MyTidalMusic")
+UPSTREAM_REPO = getenv("UPSTREAM_REPO", "https://github.com/shoaib910385/MysicVen")
 UPSTREAM_BRANCH = getenv("UPSTREAM_BRANCH", "main")
 GIT_TOKEN = getenv("GIT_TOKEN", None)
 
 # Support
-SUPPORT_CHANNEL = getenv("SUPPORT_CHANNEL", "https://t.me/thedrxnet")
-SUPPORT_CHAT = getenv("SUPPORT_CHAT", "https://t.me/drx_supportchat")
+SUPPORT_CHANNEL = getenv("SUPPORT_CHANNEL", "https://t.me/+EJ3idcDVxxhmOGVh")
+SUPPORT_CHAT = getenv("SUPPORT_CHAT", "https://t.me/+8VJkcLTXXsdlMzlh")
 
 # Assistant settings
 AUTO_LEAVING_ASSISTANT = getenv("AUTO_LEAVING_ASSISTANT", "True")
@@ -78,8 +78,8 @@ autoclean = []
 confirmer = {}
 
 # Image URLs
-START_IMG_URL = getenv("START_IMG_URL", "https://files.catbox.moe/wifnjm.jpg")
-PING_IMG_URL = getenv("PING_IMG_URL", "https://files.catbox.moe/wifnjm.jpg")
+START_IMG_URL = getenv("START_IMG_URL", "https://files.catbox.moe/2nh8wx.jpg")
+PING_IMG_URL = getenv("PING_IMG_URL", "https://files.catbox.moe/2nh8wx.jpg")
 PLAYLIST_IMG_URL = "https://telegra.ph/file/d723f4c80da157fca1678.jpg"
 STATS_IMG_URL = "https://files.catbox.moe/wifnjm.jpg"
 TELEGRAM_AUDIO_URL = "https://files.catbox.moe/2vq8oz.jpg"
