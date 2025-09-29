@@ -55,8 +55,8 @@ def stream_markup_timer(_, chat_id, played, dur):
     buttons = [
                 
         [
-            InlineKeyboardButton(text=" ˹ηєᴛᴡᴏʀᴋ˼ ", url="https://t.me/thedrxnet",),
-            InlineKeyboardButton(text=" ˹ϻʏ ʜᴏϻє˼ ", url="https://t.me/drx_supportchat",),
+            InlineKeyboardButton(text=" ˹ηєᴛᴡᴏʀᴋ˼ ", url="https://t.me/+EJ3idcDVxxhmOGVh",),
+            InlineKeyboardButton(text=" ˹ϻʏ ʜᴏϻє˼ ", url="https://t.me/+8VJkcLTXXsdlMzlh",),
         ],
         
      [
@@ -74,8 +74,8 @@ def stream_markup(_, chat_id):
 
         
         [
-            InlineKeyboardButton(text=" ˹ηєᴛᴡᴏʀᴋ˼ ", url="https://t.me/thedrxnet",),
-            InlineKeyboardButton(text=" ˹ϻʏ ʜᴏϻє˼ ", url="https://t.me/drx_supportchat",),
+            InlineKeyboardButton(text=" ˹ηєᴛᴡᴏʀᴋ˼ ", url="https://t.me/+EJ3idcDVxxhmOGVh",),
+            InlineKeyboardButton(text=" ˹ϻʏ ʜᴏϻє˼ ", url="https://t.me/+8VJkcLTXXsdlMzlh",),
         ],
         [
             InlineKeyboardButton("˹ᴘʀιᴠᴧᴄʏ˼", url=f"https://telegra.ph/PRIVACY-POLICY-09-29-68"),
