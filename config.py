@@ -78,8 +78,8 @@ autoclean = []
 confirmer = {}
 
 # Image URLs
-START_IMG_URL = getenv("START_IMG_URL", "https://files.catbox.moe/2nh8wx.jpg")
-PING_IMG_URL = getenv("PING_IMG_URL", "https://files.catbox.moe/2nh8wx.jpg")
+START_IMG_URL = getenv("START_IMG_URL", "https://files.catbox.moe/szq7a3.jpg")
+PING_IMG_URL = getenv("PING_IMG_URL", "https://files.catbox.moe/szq7a3.jpg")
 PLAYLIST_IMG_URL = "https://telegra.ph/file/d723f4c80da157fca1678.jpg"
 STATS_IMG_URL = "https://files.catbox.moe/wifnjm.jpg"
 TELEGRAM_AUDIO_URL = "https://files.catbox.moe/2vq8oz.jpg"
