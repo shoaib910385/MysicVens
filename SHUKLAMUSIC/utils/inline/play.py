@@ -61,7 +61,7 @@ def stream_markup_timer(_, chat_id, played, dur):
         
      [
             InlineKeyboardButton("˹ᴘʀιᴠᴧᴄʏ˼", url=f"https://telegra.ph/Privacy-Policy-08-03-101"),
-            InlineKeyboardButton("˹ᴛιᴅᴧʟ ᴛᴜηєs˼♪", url=f"http://t.me/TidalXMusicBot/tidaltunes"),
+            InlineKeyboardButton("˹ᴏᴡɴєʀ˼", url=f"http://t.me/iamvalrik"),
         ],
 
         [InlineKeyboardButton(text=_["CLOSE_BUTTON"], callback_data="close")],
@@ -79,7 +79,7 @@ def stream_markup(_, chat_id):
         ],
         [
             InlineKeyboardButton("˹ᴘʀιᴠᴧᴄʏ˼", url=f"https://telegra.ph/Privacy-Policy-08-03-101"),
-            InlineKeyboardButton("˹ᴛιᴅᴧʟ ᴛᴜηєs˼♪", url=f"http://t.me/TidalXMusicBot/tidaltunes"),
+            InlineKeyboardButton("˹ᴏᴡɴєʀ˼", url=f"http://t.me/iamvalrik"),
         ],
        
         [InlineKeyboardButton(text=_["CLOSE_BUTTON"], callback_data="close")],
