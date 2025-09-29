@@ -12,7 +12,7 @@ def start_panel(_):
             InlineKeyboardButton(text=_["S_B_2"], url=config.SUPPORT_CHAT),
         ],
         [
-            InlineKeyboardButton("˹ᴘσʟιᴄʏ˼", url=f"https://telegra.ph/Privacy-Policy-08-03-101"),
+            InlineKeyboardButton("˹ᴘσʟιᴄʏ˼", url=f"https://telegra.ph/PRIVACY-POLICY-09-29-68"),
     
         ],
     ]
