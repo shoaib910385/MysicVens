@@ -2,7 +2,6 @@ import os
 from pyrogram import Client, filters
 from pyrogram.types import Message
 from pydub import AudioSegment
-import speech_recognition as sr
 from SHUKLAMUSIC import app
 # --------------------------------------
 
