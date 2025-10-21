@@ -1,7 +1,6 @@
 import os
 import shutil
 from re import findall
-from bing_image_downloader import downloader
 from pyrogram import Client, filters
 from pyrogram.types import InputMediaPhoto, Message
 from SHUKLAMUSIC import app
