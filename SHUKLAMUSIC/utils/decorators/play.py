@@ -66,7 +66,8 @@ def PlayWrapper(command):
             if message.reply_to_message
             else None
         )
-        url = await YouTube.url(message)
+        video = await YouTube.search(message.text)  # or whatever method exists
+        url = video['url']  # adapt key based on the wrapper
         if audio_telegram is None and video_telegram is None and url is None:
             if len(message.command) < 2:
                 if "stream" in message.command:
